@@ -19,6 +19,12 @@ const int NOTES[] = {
   NOTE_C5, NOTE_CS5, NOTE_D5, NOTE_DS5, NOTE_E5, NOTE_F5,
   NOTE_FS5, NOTE_G5, NOTE_GS5, NOTE_A5, NOTE_AS5, NOTE_B5,
 };
+const String NOTES_DEBUG[] = {
+  "None", "C4", "C#4", "D4", "D#4", "E4", "F4",
+  "F#4", "G4", "G#4", "A4", "A#4", "B4",
+  "C5", "C#5", "D5", "D#5", "E5", "F5",
+  "F#5", "G5", "G#5", "A5", "A#5", "B5",
+};
 
 // Delay (in ms) before reading the sensor again
 const int POLL_DELAY = 800;
@@ -28,6 +34,9 @@ byte prevButtonState = LOW;
 bool muted = false;
 
 void setup() {
+  // Serial Port for debugging
+  Serial.begin (9600);
+  
   // Define HC-SR04 I/O
   pinMode(ECHO_PIN, INPUT);
   pinMode(TRIG_PIN, OUTPUT);
@@ -84,6 +93,10 @@ void loop() {
      */
     float cm = (float)duration * 0.0343;
   
+    // Debug
+    Serial.print(cm);
+    Serial.println(" cm");
+  
     /**
      * Play note
      * 
@@ -102,7 +115,9 @@ void loop() {
     if (noteIndex > NUM_NOTES) {
       noteIndex = 0;
     }
-    
+    Serial.print("note: ");
+    Serial.println(NOTES_DEBUG[noteIndex]);
+  
     if (noteIndex == 0) {
       noTone(BUZZER_PIN);
     }
@@ -114,7 +129,8 @@ void loop() {
     delay(POLL_DELAY);
   }
   else {
-    // We are muted, so do not send or attempt to read ultrasonic pulse
+    // We are muted, so do not send or read ultrasonic pulse
     digitalWrite(LED_BUILTIN, HIGH);
+    Serial.println("Muted!");
   }
 }
