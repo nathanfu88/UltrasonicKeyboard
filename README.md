@@ -16,7 +16,7 @@ To assemble this project, you'll need:
 Here is a schematic of the circuit:
 ![Schematic](schematic.png)
 
-The pushbutton is used as a mute switch and the resistor is a pulldown with a 10 kOhm value as [suggested by Arduino's pins tutorial](https://www.arduino.cc/en/Tutorial/DigitalPins). The on-board LED will light if the buzzer is muted.
+The pushbutton is used as a mute switch and the resistor is a pulldown with a 10 kOhm value as [suggested by Arduino's pins tutorial](https://www.arduino.cc/en/Tutorial/DigitalPins). The on-board LED will light up if the buzzer is muted.
 
 ## Assembly
 There are a few pieces to put together for this project.
@@ -26,7 +26,7 @@ An example of how this circuit can be put together on a breadboard:
 ![Breadboard](breadboard.png)
 
 ### Keyboard
-Print out the [keyboard ](keyboard_print.svg) on four pieces of standard letter paper (8.5" x 11") in landscape mode. Cut out the groupings of keys and tape them together to create the "full" [two-octave keyboard](keyboard.svg)
+Print out the [keyboard](keyboard_print.svg) on four pieces of standard letter paper (8.5" x 11") in landscape mode. Cut out the groupings of keys and tape them together to create the "full" [two-octave keyboard](keyboard.svg)
 
 ### Workspace
 Some things to consider when setting up the work space:
@@ -52,6 +52,6 @@ The HC-SR04 module emits an ultrasonic sound wave and detects its reflection, ef
 
 The piano keyboard was designed such that the individual keys have an acceptable margin of error and still correlate with a particular note. This results in a mapping of distance ranges with musical notes. The mapping of distances to notes is done by estimation. Instead of having a table of notes mapped to distance ranges, the distance read from the sensor is divided by a specially chosen value (through trial and error) and the result is rounded to get the closest note.
 
-The piezo buzzer can emit a sound wave at a designated frequency (you can see the note frequency definitions in [pitches.h](pitches.h)), and so, will play a sound based on the distance the sensor reads.
+The piezo buzzer can emit a sound wave at a designated frequency (you can see the note frequency definitions in [pitches.h](ultrasonickeyboard/pitches.h)), and so, will play a sound based on the distance the sensor reads.
 
 The mute circuitry (pushbutton and resistor) is meant to silence the buzzer for assistance in quick debugging situations, or to stop the buzzer from going off without having to remove the buzzer or power source.
