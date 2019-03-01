@@ -38,10 +38,12 @@ Some things to consider when setting up the work space:
 
 The best orientation is to have the assembled circuit on the left, with the HC-SR04 mounted in a case and facing right. The image belows shows such a configuration.
 
-## Using the Keyboard
-The entire configuration requires that the HC-SR04 direction be parallel to the surface that the keyboard rests on. This usually means that the HC-SR04 needs to be propped up, mounted, or in an enclosure. This project also includes a [mount model]() that can be 3D printed and will support the HC-SR04 so that it will suit a usable configuration.
+![Completed keyboard](completed.jpg)
 
-The sensor needs to be 2 cm from the start of the keyboard so that the keyboard distances match what the microcontroller code is programmed for.
+## Using the Keyboard
+The entire configuration requires that the HC-SR04 direction be parallel to the surface that the keyboard rests on. This usually means that the HC-SR04 needs to be propped up, mounted, or in an enclosure. This project also includes a [mount model](hc-sr04_mount.stl) that can be 3D printed and will support the HC-SR04 so that it will suit a usable configuration.
+
+The sensor needs to be at least 2 cm from the start of the keyboard so that the keyboard distances match what the microcontroller code is programmed for. The plastic extension of the 3D mount roughly matches the minimum distance, but you may still need to "calibrate" the position by finding the minimum distance at which the buzzer emits a noise and align your C4.
 
 To play notes, move a solid object (the "reflector") over the desired key in front of the sensor to "obstruct it". A flat object works best, as any bends in the reflector can redirect the ultrasonic waves so that the reader is unable to detect them.
 
